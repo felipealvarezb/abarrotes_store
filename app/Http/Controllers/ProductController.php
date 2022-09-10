@@ -28,4 +28,17 @@ class ProductController extends Controller
         
         return view('product.show')->with("viewData", $viewData);
     }
+
+    public function search(Request $request)
+    {
+        
+        $viewData = [];
+        $query = $request->input("query");
+        $search = Product::where("name", "like", '%'.$query.'%')->get();
+        $viewData["title"] = "Searching products";
+        $viewData["subtitle"] = "Here's what we found";
+        $viewData["products"] = $search;
+        
+        return view("product.search")->with("viewData", $viewData);
+    }
 }
