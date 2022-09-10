@@ -15,18 +15,18 @@ class User extends Authenticatable
 
     /*
         * USER ATTRIBUTES
-        * $this->attributes['id'] - int - contains the user primary key (id) 
+        * $this->attributes['id'] - int - contains the user primary key (id)
         * $this->attributes['name'] - string - contains the user name
         * $this->attributes['email'] - string - contains the user email
-        * $this->attributes['email_verified_at'] - timestamp - contains the user email verification date 
+        * $this->attributes['email_verified_at'] - timestamp - contains the user email verification date
         * $this->attributes['password'] - string - contains the user password
         * $this->attributes['remember_token'] - string - contains the user password
         * $this->attributes['created_at'] - timestamp - contains the user creation date
         * $this->attributes['updated_at'] - timestamp - contains the user update date
-        * $this->attributes['city'] - string - contains the user city 
-        * $this->attributes['address'] - string - contains the user address 
-        * $this->attributes['phone'] - string - contains the user phone 
-        * $this->attributes['document'] - string - contains the user document 
+        * $this->attributes['city'] - string - contains the user city
+        * $this->attributes['address'] - string - contains the user address
+        * $this->attributes['phone'] - string - contains the user phone
+        * $this->attributes['document'] - string - contains the user document
         * $this->attributes['role'] - string - contains the user role (client or admin)
         * $this->attributes['balance'] - int - contains the user balance
 
@@ -69,104 +69,104 @@ class User extends Authenticatable
     ];
 
 
-    public function getId() 
+    public function getId()
     {
-        return $this->attributes['id']; 
+        return $this->attributes['id'];
     }
 
-    public function setId($id) 
+    public function setId($id)
     {
-        $this->attributes['id'] = $id; 
+        $this->attributes['id'] = $id;
     }
 
-    public function getName() 
+    public function getName()
     {
-        return $this->attributes['name']; 
+        return $this->attributes['name'];
     }
 
     public function setName($name)
     {
-        $this->attributes['name'] = $name; 
+        $this->attributes['name'] = $name;
     }
 
-    public function getEmail() 
+    public function getEmail()
     {
-        return $this->attributes['email']; 
+        return $this->attributes['email'];
     }
 
-    public function setEmail($email) 
+    public function setEmail($email)
     {
-        $this->attributes['email'] = $email; 
+        $this->attributes['email'] = $email;
     }
 
-    public function getPassword() 
+    public function getPassword()
     {
-        return $this->attributes['password']; 
+        return $this->attributes['password'];
     }
 
-    public function setPassword($password) 
+    public function setPassword($password)
     {
-        $this->attributes['password'] = $password; 
+        $this->attributes['password'] = $password;
     }
 
-    public function getCity() 
+    public function getCity()
     {
-        return $this->attributes['city']; 
+        return $this->attributes['city'];
     }
     
-    public function setCity($city) 
+    public function setCity($city)
     {
-        $this->attributes['city'] = $city; 
+        $this->attributes['city'] = $city;
     }
 
-    public function getAddress() 
+    public function getAddress()
     {
-        return $this->attributes['address']; 
+        return $this->attributes['address'];
     }
     
-    public function setAddress($address) 
+    public function setAddress($address)
     {
-        $this->attributes['address'] = $address; 
+        $this->attributes['address'] = $address;
     }
 
-    public function getPhone() 
+    public function getPhone()
     {
-        return $this->attributes['phone']; 
+        return $this->attributes['phone'];
     }
     
-    public function setPhone($phone) 
+    public function setPhone($phone)
     {
-        $this->attributes['phone'] = $phone; 
+        $this->attributes['phone'] = $phone;
     }
 
-    public function getDocument() 
+    public function getDocument()
     {
-        return $this->attributes['document']; 
+        return $this->attributes['document'];
     }
     
-    public function setDocument($document) 
+    public function setDocument($document)
     {
-        $this->attributes['document'] = $document; 
+        $this->attributes['document'] = $document;
     }
 
-    public function getRole() 
+    public function getRole()
     {
-        return $this->attributes['role']; 
+        return $this->attributes['role'];
     }
 
-    public function setRole($role) 
+    public function setRole($role)
     {
-        $this->attributes['role'] = $role; 
+        $this->attributes['role'] = $role;
     }
 
-    public function getBalance() 
+    public function getBalance()
     {
-        return $this->attributes['balance']; 
+        return $this->attributes['balance'];
     }
 
-    public function setBalance($balance) 
+    public function setBalance($balance)
     {
-        $this->attributes['balance'] = $balance; 
+        $this->attributes['balance'] = $balance;
     }
 
     public function getCreatedAt()
@@ -174,9 +174,9 @@ class User extends Authenticatable
         return $this->attributes['created_at'];
     }
 
-    public function setCreatedAt($createdAt) 
+    public function setCreatedAt($createdAt)
     {
-        $this->attributes['created_at'] = $createdAt; 
+        $this->attributes['created_at'] = $createdAt;
     }
 
     public function getUpdatedAt()
@@ -184,25 +184,23 @@ class User extends Authenticatable
         return $this->attributes['updated_at'];
     }
 
-    public function setUpdatedAt($updatedAt) 
+    public function setUpdatedAt($updatedAt)
     {
-        $this->attributes['updated_at'] = $updatedAt; 
+        $this->attributes['updated_at'] = $updatedAt;
     }
 
-    public function orders() 
+    public function orders()
     {
-    return $this->hasMany(Order::class); 
+        return $this->hasMany(Order::class);
     }
     
-    public function getOrders() 
+    public function getOrders()
     {
-    return $this->orders; 
+        return $this->orders;
     }
     
     public function setOrders($orders)
     {
-    $this->orders = $orders;
+        $this->orders = $orders;
     }
-    
-
 }

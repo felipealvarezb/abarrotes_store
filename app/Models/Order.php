@@ -1,53 +1,54 @@
 <?php
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model; 
+use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Item;
 
-class Order extends Model {
+class Order extends Model
+{
     /**
     * ORDER ATTRIBUTES
     * $this->attributes['id'] - int - contains the order primary key (id)
     * $this->attributes['total'] - string - contains the order name
     * $this->attributes['user_id'] - int - contains the referenced user id
-    * $this->attributes['created_at'] - timestamp - contains the order creation date 
-    * $this->attributes['updated_at'] - timestamp - contains the order update date 
+    * $this->attributes['created_at'] - timestamp - contains the order creation date
+    * $this->attributes['updated_at'] - timestamp - contains the order update date
     * $this->user - User - contains the associated User
 
-    * $this->items - Item[] - contains the associated items 
+    * $this->items - Item[] - contains the associated items
     */
-    public static function validate($request) 
+    public static function validate($request)
     {
         $request->validate([
             "total" => "required|numeric",
             "user_id" => "required|exists:users,id",
-        ]); 
+        ]);
     }
 
-    public function getId() 
+    public function getId()
     {
-        return $this->attributes['id']; 
+        return $this->attributes['id'];
     }
     
-    public function setId($id) 
+    public function setId($id)
     {
-        $this->attributes['id'] = $id; 
+        $this->attributes['id'] = $id;
     }
     
-    public function getTotal() 
+    public function getTotal()
     {
-        return $this->attributes['total']; 
+        return $this->attributes['total'];
     }
     
-    public function setTotal($total) 
+    public function setTotal($total)
     {
         $this->attributes['total'] = $total;
     }
     
-    public function getUserId() 
+    public function getUserId()
     {
-        return $this->attributes['user_id']; 
+        return $this->attributes['user_id'];
     }
     
     public function setUserId($userId)
@@ -55,9 +56,9 @@ class Order extends Model {
         $this->attributes['user_id'] = $userId;
     }
     
-    public function getCreatedAt() 
+    public function getCreatedAt()
     {
-        return $this->attributes['created_at']; 
+        return $this->attributes['created_at'];
     }
     
     public function setCreatedAt($createdAt)
@@ -65,44 +66,43 @@ class Order extends Model {
         $this->attributes['created_at'] = $createdAt;
     }
     
-    public function getUpdatedAt() 
+    public function getUpdatedAt()
     {
-        return $this->attributes['updated_at']; 
+        return $this->attributes['updated_at'];
     }
     
-    public function setUpdatedAt($updatedAt) 
+    public function setUpdatedAt($updatedAt)
     {
-        $this->attributes['updated_at'] = $updatedAt; 
+        $this->attributes['updated_at'] = $updatedAt;
     }
     
-    public function user() 
+    public function user()
     {
-        return $this->belongsTo(User::class); 
+        return $this->belongsTo(User::class);
     }
     
-    public function getUser() 
+    public function getUser()
     {
-        return $this->user; 
+        return $this->user;
     }
     
-    public function setUser($user) 
+    public function setUser($user)
     {
         $this->user = $user;
     }
     
-    public function items() 
+    public function items()
     {
-        return $this->hasMany(Item::class); 
+        return $this->hasMany(Item::class);
     }
     
-    public function getItems() 
+    public function getItems()
     {
         return $this->items;
     }
     
-    public function setItems($items) 
+    public function setItems($items)
     {
         $this->items = $items;
     }
-    
 }

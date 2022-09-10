@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers; 
+namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-class ProductController extends Controller 
+
+class ProductController extends Controller
 {
-    public function index() 
+    public function index()
     {
         
         $viewData = [];
-        $viewData["title"] = "Products - Online Store"; 
-        $viewData["subtitle"] = "List of products"; 
+        $viewData["title"] = "Products - Online Store";
+        $viewData["subtitle"] = "List of products";
         $viewData["products"] = Product::all();
 
         return view('product.index')->with("viewData", $viewData);
@@ -27,5 +28,4 @@ class ProductController extends Controller
         
         return view('product.show')->with("viewData", $viewData);
     }
-
 }

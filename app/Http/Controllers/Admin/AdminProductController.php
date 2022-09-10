@@ -22,23 +22,23 @@ class AdminProductController extends Controller
         
         Product::validate($request);
 
-        $newProduct = new Product(); 
-        $newProduct->setName($request->input('name')); 
-        $newProduct->setBrand($request->input('brand')); 
+        $newProduct = new Product();
+        $newProduct->setName($request->input('name'));
+        $newProduct->setBrand($request->input('brand'));
         $newProduct->setCategory($request->input('category'));
         $newProduct->setWeight($request->input('weight'));
-        $newProduct->setPrice($request->input('price')); 
+        $newProduct->setPrice($request->input('price'));
         $newProduct->setImage("food.png");
         $newProduct->save();
 
         if ($request->hasFile('image')) {
-            $imageName = $newProduct->getId().".".$request->file('image')->extension(); 
+            $imageName = $newProduct->getId().".".$request->file('image')->extension();
             Storage::disk('public')->put(
                 $imageName,
-                file_get_contents($request->file('image')->getRealPath()) 
+                file_get_contents($request->file('image')->getRealPath())
             );
             $newProduct->setImage($imageName);
-            $newProduct->save(); 
+            $newProduct->save();
         }
 
         return back();
@@ -64,11 +64,11 @@ class AdminProductController extends Controller
         Product::validate($request);
 
         $product = Product::findOrFail($id);
-        $product->setName($request->input('name')); 
-        $product->setBrand($request->input('brand')); 
+        $product->setName($request->input('name'));
+        $product->setBrand($request->input('brand'));
         $product->setCategory($request->input('category'));
         $product->setWeight($request->input('weight'));
-        $product->setPrice($request->input('price')); 
+        $product->setPrice($request->input('price'));
 
         if ($request->hasFile('image')) {
             $imageName = $product->getId().".".$request->file('image')->extension();

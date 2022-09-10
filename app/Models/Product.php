@@ -18,138 +18,135 @@ class Product extends Model
         * $this->attributes['weight'] - float - contains the product weight
         * $this->attributes['price'] - int - contains the product price
         * $this->attributes['image'] - string - contains the product image
-        * $this->attributes['created_at'] - timestamp - contains the product creation date 
-        * $this->attributes['updated_at'] - timestamp - contains the product update date 
+        * $this->attributes['created_at'] - timestamp - contains the product creation date
+        * $this->attributes['updated_at'] - timestamp - contains the product update date
 
         * $this->items - Item[] - contains the associated items
     */
 
-    public static function validate($request) 
+    public static function validate($request)
     {
         $request->validate([
             "name" => "required|max:255",
-            "brand" => "required|max:50", 
+            "brand" => "required|max:50",
             "category" => "required|max:50",
             "weight" => "required",
-            "price" => "required|numeric|gt:0", 
+            "price" => "required|numeric|gt:0",
             'image' => 'image',
-        ]); 
+        ]);
     }
 
-    public static function sumPricesByQuantities($products, $productsInSession) 
+    public static function sumPricesByQuantities($products, $productsInSession)
     {
         $total = 0;
         foreach ($products as $product) {
-            $total = $total + ($product->getPrice()*$productsInSession[$product->getId()]); 
+            $total = $total + ($product->getPrice()*$productsInSession[$product->getId()]);
         }
         return $total;
     }
     
-    public function getId() 
+    public function getId()
     {
-        return $this->attributes['id']; 
+        return $this->attributes['id'];
     }
 
-    public function setId($id) 
+    public function setId($id)
     {
-        $this->attributes['id'] = $id; 
+        $this->attributes['id'] = $id;
     }
 
-    public function getName() 
+    public function getName()
     {
-        return $this->attributes['name']; 
+        return $this->attributes['name'];
     }
 
-    public function setName($name) 
+    public function setName($name)
     {
-        $this->attributes['name'] = $name; 
+        $this->attributes['name'] = $name;
     }
 
-    public function getBrand() 
+    public function getBrand()
     {
-        return $this->attributes['brand']; 
+        return $this->attributes['brand'];
     }
 
-    public function setBrand($brand) 
+    public function setBrand($brand)
     {
-        $this->attributes['brand'] = $brand; 
+        $this->attributes['brand'] = $brand;
     }
 
-    public function getCategory() 
+    public function getCategory()
     {
-        return $this->attributes['category']; 
+        return $this->attributes['category'];
     }
 
-    public function setCategory($category) 
+    public function setCategory($category)
     {
-        $this->attributes['category'] = $category; 
+        $this->attributes['category'] = $category;
     }
 
-    public function getWeight() 
+    public function getWeight()
     {
-        return $this->attributes['weight']; 
+        return $this->attributes['weight'];
     }
 
-    public function setWeight($weight) 
+    public function setWeight($weight)
     {
-        $this->attributes['weight'] = $weight; 
+        $this->attributes['weight'] = $weight;
     }
 
-    public function getPrice() 
+    public function getPrice()
     {
-        return $this->attributes['price']; 
+        return $this->attributes['price'];
     }
 
-    public function setPrice($price) 
+    public function setPrice($price)
     {
-        $this->attributes['price'] = $price; 
+        $this->attributes['price'] = $price;
     }
 
-    public function getImage() 
+    public function getImage()
     {
-        return $this->attributes['image']; 
+        return $this->attributes['image'];
     }
 
-    public function setImage($image) 
+    public function setImage($image)
     {
-        $this->attributes['image'] = $image; 
+        $this->attributes['image'] = $image;
     }
 
-    public function getCreatedAt() 
+    public function getCreatedAt()
     {
-        return $this->attributes['created_at']; 
+        return $this->attributes['created_at'];
     }
 
-    public function setCreatedAt($createdAt) 
+    public function setCreatedAt($createdAt)
     {
-        $this->attributes['created_at'] = $createdAt; 
+        $this->attributes['created_at'] = $createdAt;
     }
 
-    public function getUpdatedAt() 
+    public function getUpdatedAt()
     {
-        return $this->attributes['updated_at']; 
+        return $this->attributes['updated_at'];
     }
 
-    public function setUpdatedAt($updatedAt) 
+    public function setUpdatedAt($updatedAt)
     {
-        $this->attributes['updated_at'] = $updatedAt; 
+        $this->attributes['updated_at'] = $updatedAt;
     }
 
-    public function items() 
+    public function items()
     {
-    return $this->hasMany(Item::class); 
+        return $this->hasMany(Item::class);
     }
     
-    public function getItems() 
+    public function getItems()
     {
-    return $this->items; 
+        return $this->items;
     }
     
-    public function setItems($items) 
+    public function setItems($items)
     {
-    $this->items = $items; 
+        $this->items = $items;
     }
-    
-
-
 }

@@ -17,10 +17,10 @@ class AdminAuthMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->getRole() == 'admin') { 
+        if (Auth::user() && Auth::user()->getRole() == 'admin') {
             return $next($request);
         } else {
-        return redirect()->route('home.index');
+            return redirect()->route('home.index');
         }
     }
 }
