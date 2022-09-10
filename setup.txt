@@ -1,0 +1,3 @@
+El programa se corre comun y corriente con php artisan serve y ya deben poder navegar desde la aplicacion 
+
+NOTA: Estoy utilizando el estandar de codigo de PHP_CodeSniffer no se si lo deban instalar 
