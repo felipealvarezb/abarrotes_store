@@ -6,6 +6,11 @@
     <div class="card-header"> 
         Products in Cart
     </div>
+    @if(session()->has('success'))
+        <div class="alert alert-danger mt-2">
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <div class="card-body">
         <table class="table table-bordered table-striped text-center">
             <thead>

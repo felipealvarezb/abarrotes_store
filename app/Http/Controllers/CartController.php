@@ -67,14 +67,20 @@ class CartController extends Controller
                 $item->save();
                 $total = $total + ($product->getPrice()*$quantity);
             }
-            $order->setTotal($total);
-            $order->save();
 
-            $newBalance = Auth::user()->getBalance() - $total;
-            Auth::user()->setBalance($newBalance);
-            Auth::user()->save();
+            $balance = Auth::user()->getBalance();
+            if ($total < $balance) {
+                $order->setTotal($total);
+                $order->save();
 
-            $request->session()->forget('products');
+                $newBalance = Auth::user()->getBalance() - $total;
+                Auth::user()->setBalance($newBalance);
+                Auth::user()->save();
+
+                $request->session()->forget('products');
+            } else {
+                return redirect()->route('cart.index')->with('success', 'Fondos insuficientes para la compra');
+            }
 
             $viewData = [];
             $viewData["title"] = "Purchase - Online Store";
