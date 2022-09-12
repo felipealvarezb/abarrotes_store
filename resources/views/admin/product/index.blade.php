@@ -91,6 +91,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
+                    <th scope="col">History</th>
                 </tr>
             </thead>
             <tbody>
@@ -110,6 +111,11 @@
                             <button class="btn btn-danger"> <i class="bi-trash"></i>
                             </button> 
                         </form>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="{{route('admin.historyProduct.index', ['id'=> $product->getId()])}}">
+                            <i class="bi bi-clipboard"></i>
+                        </a>
                     </td>
                 </tr>
                 @endforeach

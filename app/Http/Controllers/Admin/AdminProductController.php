@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Product;
+use App\Models\ProductHistory;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -68,6 +69,15 @@ class AdminProductController extends Controller
         $product->setBrand($request->input('brand'));
         $product->setCategory($request->input('category'));
         $product->setWeight($request->input('weight'));
+        if($product->getPrice() != $request->input('price'))
+        {
+            $productHistory = new ProductHistory();
+            $productHistory->setIdProduct($id);
+            $productHistory->setPrice($request->input('price'));
+
+            $productHistory->save();
+        }
+
         $product->setPrice($request->input('price'));
 
         if ($request->hasFile('image')) {

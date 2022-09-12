@@ -22,6 +22,7 @@ class Product extends Model
         * $this->attributes['updated_at'] - timestamp - contains the product update date
 
         * $this->items - Item[] - contains the associated items
+        * $this->historyProduct - historyProducts[] - contains the associated historyProducts
     */
 
     public static function validate($request)
@@ -148,5 +149,20 @@ class Product extends Model
     public function setItems($items)
     {
         $this->items = $items;
+    }
+
+    public function historyProduct()
+    {
+        return $this->hasMany(ProductHistory::class);
+    }
+
+    public function getHistoryProduct()
+    {
+        return $this->historyProduct;
+    }
+    
+    public function setHistoryProduct($historyProduct)
+    {
+        $this->historyProduct = $historyProduct;
     }
 }
