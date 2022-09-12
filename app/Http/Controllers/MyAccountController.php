@@ -26,8 +26,8 @@ class MyAccountController extends Controller
 
         $order = Order::findOrFail($id);
         $viewData["order"] = $order;
-        $pdf = Pdf::loadView("myaccount.pdf", ["viewData"=>$viewData]);
-        return $pdf->stream();
-        //return view('myaccount.pdf')->with("viewData", $viewData);
+        //$pdf = Pdf::loadView("myaccount.pdf", ["viewData"=>$viewData]);
+        //return $pdf->stream();
+        return view('myaccount.pdf')->with("viewData", $viewData);
     }
 }
