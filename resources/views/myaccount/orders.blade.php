@@ -6,6 +6,9 @@
 <div class="card mb-4">
     <div class="card-header">
         Order #{{ $order->getId() }} 
+        <div class="d-flex flex-row-reverse">
+            <a href="{{ route('myaccount.pdf', ['id'=> $order->getId()]) }}" class="btn btn-primary ">PDF</a>
+        </div>
     </div>
     <div class="card-body">
         <b>Date:</b> {{ $order->getCreatedAt() }}<br /> 

@@ -79,6 +79,10 @@ class CartController extends Controller
 
                 $request->session()->forget('products');
             } else {
+                foreach($order->getItems() as $item){
+                    $item->delete();
+                }
+                $order->delete();
                 return redirect()->route('cart.index')->with('success', 'Fondos insuficientes para la compra');
             }
 
