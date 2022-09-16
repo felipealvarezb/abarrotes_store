@@ -66,6 +66,17 @@ class CartController extends Controller
                 $item->setProductId($product->getId());
                 $item->setOrderId($order->getId());
                 $item->save();
+
+                $productBestSeller = new ProductBestSeller();
+                if ($productBestSeller->getProductCount()==NULL) {
+                    $productBestSeller->setProductCount($quantity);
+                } else {
+                    $productBestSeller->setProductCount($productBestSeller->getProductCount()+$quantity);
+                }
+                
+    
+                $productHistory->save();
+
                 $total = $total + ($product->getPrice()*$quantity);
             }
 

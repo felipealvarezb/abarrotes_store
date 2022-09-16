@@ -36,7 +36,7 @@ class ProductBestSeller extends Model
         $this->attributes['product_id'] = $id;
     }
 
-    public function getPoductCount()
+    public function getProductCount()
     {
         return $this->attributes['product_count'];
     }

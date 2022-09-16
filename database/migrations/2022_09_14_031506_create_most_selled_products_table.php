@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('most_selled_products', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('product_id'); 
             $table->foreign('product_id')->references('id')->on('products');
-            $table->int('product_count');
+            $table->integer('product_count');
         });
     }
 
