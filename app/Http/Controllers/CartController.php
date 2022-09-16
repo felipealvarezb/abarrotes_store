@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductBestSeller;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\Item;
@@ -66,14 +65,6 @@ class CartController extends Controller
                 $item->setProductId($product->getId());
                 $item->setOrderId($order->getId());
                 $item->save();
-
-                $productBestSeller = new ProductBestSeller();
-                if ($productBestSeller->getProductCount()==NULL) {
-                    $productBestSeller->setProductCount($quantity);
-                } else {
-                    $productBestSeller->setProductCount($productBestSeller->getProductCount()+$quantity);
-                }
-                $productBestSeller->save();
 
                 $total = $total + ($product->getPrice()*$quantity);
             }
