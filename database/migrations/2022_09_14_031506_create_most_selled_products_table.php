@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id'); 
             $table->foreign('product_id')->references('id')->on('products');
-            $table->integer('product_count');
+            $table->integer('product_count');   
         });
     }
 
