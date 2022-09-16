@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Product;
 use App\Models\ProductHistory;
+use App\Models\Item;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,6 +16,7 @@ class AdminProductController extends Controller
         $viewData = [];
         $viewData["title"] = "Admin Page - Products - Online Store";
         $viewData["products"] = Product::all();
+        $viewData["best_sellers"] = Item::orderBy('quantity')->groupBy('product_id')->get();
         return view('admin.product.index')->with("viewData", $viewData);
     }
 
@@ -93,4 +95,5 @@ class AdminProductController extends Controller
         $product->save();
         return redirect()->route('admin.product.index');
     }
+    
 }
