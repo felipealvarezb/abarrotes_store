@@ -75,7 +75,7 @@ class CartController extends Controller
                 }
                 
     
-                $productHistory->save();
+                $productBestSeller->save();
 
                 $total = $total + ($product->getPrice()*$quantity);
             }
