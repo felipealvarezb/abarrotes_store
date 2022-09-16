@@ -73,8 +73,6 @@ class CartController extends Controller
                 } else {
                     $productBestSeller->setProductCount($productBestSeller->getProductCount()+$quantity);
                 }
-                
-    
                 $productBestSeller->save();
 
                 $total = $total + ($product->getPrice()*$quantity);
