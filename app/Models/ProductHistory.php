@@ -72,4 +72,14 @@ class ProductHistory extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
+    public function setProduct($product)
+    {
+        return $this->product = $product;
+    }
 }
