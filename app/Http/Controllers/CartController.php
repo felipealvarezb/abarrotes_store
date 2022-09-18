@@ -80,7 +80,7 @@ class CartController extends Controller
 
                 $request->session()->forget('products');
             } else {
-                foreach($order->getItems() as $item){
+                foreach ($order->getItems() as $item) {
                     $item->delete();
                 }
                 $order->delete();

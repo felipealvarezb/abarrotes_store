@@ -16,7 +16,7 @@ class AdminHomeController extends Controller
         $orders = Order::all();
 
         $acumValue = 0;
-        foreach($orders as $order){
+        foreach ($orders as $order) {
             $acumValue = $acumValue + $order->getTotal();
         }
 
