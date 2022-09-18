@@ -123,4 +123,34 @@
         </table>
     </div>
 </div>
+
+
+<div class="card">
+    <div class="card-header"> 
+        Best Sellers Products
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($viewData["best_sellers"] as $product)
+                <tr>
+                    <td>{{ $product->getProductId()  }}</td>
+                    <td>{{ $product->getProductId() }}</td>
+                    <td>{{ $product->getPrice() }}</td>
+                    <td>
+                        
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
 @endsection
