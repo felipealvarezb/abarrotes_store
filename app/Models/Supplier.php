@@ -90,6 +90,21 @@ class Supplier extends Model
     {
         $this->attributes["observation"] = $observation;
     }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+    
+    public function getProduct()
+    {
+        return $this->product;
+    }
+    
+    public function setProduct($product)
+    {
+        $this->product = $product;
+    }
     
     public function getCreatedAt()
     {

@@ -151,6 +151,21 @@ class Product extends Model
         $this->items = $items;
     }
 
+    public function suppliers()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
+    
+    public function getSupplier()
+    {
+        return $this->supplier;
+    }
+    
+    public function setSupplier($supplier)
+    {
+        $this->supplier = $supplier;
+    }
+
     public function historyProduct()
     {
         return $this->hasMany(ProductHistory::class);

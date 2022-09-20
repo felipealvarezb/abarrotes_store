@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Item;
 
 use Illuminate\Http\Request;
 
@@ -10,7 +11,7 @@ class HomeController extends Controller
     {
         $viewData = [];
         $viewData["title"] = "Home Page - Online Store";
-        
+        $viewData["best_sellers"] = Item::orderBy('quantity')->groupBy('product_id')->get();
         return view("home.index")->with("viewData", $viewData);
     }
 

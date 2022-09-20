@@ -20,6 +20,9 @@
                 <a href="{{ route('product.show', ['id'=> $product->getId()]) }}" class="btn bg-primary text-white">
                     {{ $product->getName() }}</a>
             </div>
+            <div class="card-text text-center mb-3">
+                <h5>${{ $product->getPrice() }}</h5>
+            </div>
         </div>
     </div>
     @endforeach
