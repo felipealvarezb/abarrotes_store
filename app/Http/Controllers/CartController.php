@@ -26,21 +26,21 @@ class CartController extends Controller
         $viewData["subtitle"] = "Shopping Cart";
         $viewData["total"] = $total;
         $viewData["products"] = $productsInCart;
-        return view('cart.index')->with("viewData", $viewData);
+        return view("cart.index")->with("viewData", $viewData);
     }
 
     public function add(Request $request, $id)
     {
         $products = $request->session()->get("products");
-        $products[$id] = $request->input('quantity');
-        $request->session()->put('products', $products);
+        $products[$id] = $request->input("quantity");
+        $request->session()->put("products", $products);
 
-        return redirect()->route('cart.index');
+        return redirect()->route("cart.index");
     }
     
     public function delete(Request $request)
     {
-        $request->session()->forget('products');
+        $request->session()->forget("products");
         return back();
     }
 
@@ -78,13 +78,13 @@ class CartController extends Controller
                 Auth::user()->setBalance($newBalance);
                 Auth::user()->save();
 
-                $request->session()->forget('products');
+                $request->session()->forget("products");
             } else {
                 foreach ($order->getItems() as $item) {
                     $item->delete();
                 }
                 $order->delete();
-                return redirect()->route('cart.index')->with('success', 'Fondos insuficientes para la compra');
+                return redirect()->route("cart.index")->with("success", "Fondos insuficientes para la compra");
             }
 
             $viewData = [];
@@ -92,9 +92,9 @@ class CartController extends Controller
             $viewData["subtitle"] = "Purchase Status";
             $viewData["order"] = $order;
             
-            return view('cart.purchase')->with("viewData", $viewData);
+            return view("cart.purchase")->with("viewData", $viewData);
         } else {
-            return redirect()->route('cart.index');
+            return redirect()->route("cart.index");
         }
     }
 }

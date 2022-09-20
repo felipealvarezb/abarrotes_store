@@ -14,8 +14,8 @@ class MyAccountController extends Controller
         $viewData = [];
         $viewData["title"] = "My Orders - Online Store";
         $viewData["subtitle"] = "My Orders";
-        $viewData["orders"] = Order::with(['items.product'])->where('user_id', Auth::user()->getId())->get();
-        return view('myaccount.orders')->with("viewData", $viewData);
+        $viewData["orders"] = Order::with(["items.product"])->where("user_id", Auth::user()->getId())->get();
+        return view("myaccount.orders")->with("viewData", $viewData);
     }
 
     public function pdf($id)
@@ -28,6 +28,6 @@ class MyAccountController extends Controller
         $viewData["order"] = $order;
         //$pdf = Pdf::loadView("myaccount.pdf", ["viewData"=>$viewData]);
         //return $pdf->stream();
-        return view('myaccount.pdf')->with("viewData", $viewData);
+        return view("myaccount.pdf")->with("viewData", $viewData);
     }
 }
