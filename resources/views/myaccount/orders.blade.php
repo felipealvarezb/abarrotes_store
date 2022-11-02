@@ -1,25 +1,25 @@
 @extends('layouts.app')
 @section('title', $viewData["title"]) 
-@section('subtitle', $viewData["subtitle"]) 
+@section('subtitle', __('My Orders')) 
 @section('content')
 @forelse ($viewData["orders"] as $order)
 <div class="card mb-4">
     <div class="card-header">
-        Order #{{ $order->getId() }} 
+        {{ __('Order') }} #{{ $order->getId() }} 
         <div class="d-flex flex-row-reverse">
             <a href="{{ route('myaccount.pdf', ['id'=> $order->getId()]) }}" class="btn btn-primary ">PDF</a>
         </div>
     </div>
     <div class="card-body">
-        <b>Date:</b> {{ $order->getCreatedAt() }}<br /> 
-        <b>Total:</b> ${{ $order->getTotal() }}<br />
+        <b>{{ __('Date') }}</b>: {{ $order->getCreatedAt() }}<br /> 
+        <b>{{ __('Total') }}</b> ${{ $order->getTotal() }}<br />
         <table class="table table-bordered table-striped text-center mt-3">
             <thead>
                 <tr>
-                    <th scope="col">Item ID</th>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
+                    <th scope="col">{{ __('Item ID') }}</th>
+                    <th scope="col">{{ __('Product Name') }}</th>
+                    <th scope="col">{{ __('Price') }}</th>
+                    <th scope="col">{{ __('Quantity') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,7 +41,7 @@
 </div>
 @empty
     <div class="alert alert-danger" role="alert">
-        Seems to be that you have not purchased anything in our store =(. 
+        {{ __(' Seems to be that you have not purchased anything in our store ') }} 
     </div>
 @endforelse
 @endsection

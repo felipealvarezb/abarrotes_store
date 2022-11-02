@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title', $viewData["title"])
-@section('subtitle', $viewData["subtitle"])
+@section('subtitle', __('List of products'))
 @section('content')
 <div class="row">
     <div class="col-lg-5 mb-5">
         <form method="GET" action="{{ route('product.search') }}" enctype="multipart/form-data" class="d-flex">
-            <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-primary" type="submit">Search</button>
+            <input class="form-control me-2" name="query" type="search" aria-label="Search">
+            <button class="btn btn-primary" type="submit">{{ __('Search') }}</button>
         </form>
     </div>
 </div>

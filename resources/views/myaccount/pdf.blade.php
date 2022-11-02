@@ -6,7 +6,7 @@
         <div class="col-10">
             <h1>Abarrotes Store</h1>
             <p>Medellin Antioquia</p>
-            <p>El centro medellin</p>
+            <p>{{ __('Downtown medellin') }}</p>
             <p>local 312</p>
         </div>
         <div class="col-2">
@@ -47,10 +47,10 @@
         <table class="table table-borderless factura">
             <thead>
                 <tr>
-                    <th>Cant.</th>
-                    <th>Descripcion</th>
-                    <th>Precio Unitario</th>
-                    <th>Importe</th>
+                    <th>{{ __('Quantity') }}</th>
+                    <th>{{ __('Description') }}</th>
+                    <th>{{ __('Unit price') }}</th>
+                    <th>{{ __('Amount') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -67,7 +67,7 @@
                 <tr>
                     <th></th>
                     <th></th>
-                    <th>Total Factura</th>
+                    <th>{{ __('Total') }}</th>
                     <th>COP${{ $viewData["order"]->getTotal() }}</th>
                 </tr>
             </tfoot>
@@ -76,14 +76,14 @@
 
     <div class="cond row">
         <div class="col-12 mt-3">
-            <h4>Condiciones y formas de pago</h4>
-            <p>El pago se debe realizar en un plazo de 15 dias.</p>
+            <h4>{{  __('Conditions and forms of payment') }}</h4>
+            <p>{{ __('Payment must be made within 15 days') }}</p>
             <p>
-                Banco Banreserva
+                {{ __('Banreserva Bank') }}
                 <br />
                 IBAN: DO XX 0075 XXXX XX XX XXXX XXXX
                 <br />
-                Código SWIFT: BPDODOSXXXX
+                {{ __('Swift code') }}: BPDODOSXXXX
             </p>
         </div>
     </div>

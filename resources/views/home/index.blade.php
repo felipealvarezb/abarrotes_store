@@ -8,31 +8,31 @@
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="3000">
                     <div class="carousel-caption">
-                        <button class="btn btn-dark">Comprar Ahora</button>
+                        <button class="btn btn-dark">{{ __('Buy Now') }}</button>
                     </div>
                     <img src="{{ asset('/img/cereales.png') }}" class="img-fluid rounded" alt="">
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
                     <div class="carousel-caption">
-                        <button class="btn btn-dark">Comprar Ahora</button>
+                        <button class="btn btn-dark">{{ __('Buy Now') }}</button>
                     </div>
                     <img src="{{ asset('/img/legumbres.jpg') }}" class="img-fluid rounded" alt="">
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
                     <div class="carousel-caption">
-                        <button class="btn btn-dark">Comprar Ahora</button>
+                        <button class="btn btn-dark">{{ __('Buy Now') }}</button>
                     </div>
                     <img src="{{ asset('/img/proteinas.jpg') }}" class="img-fluid rounded" alt="">
                 </div>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#mi-carousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
+                    <span class="visually-hidden">{{ __('Previous') }}</span>
                 </button>
 
                 <button class="carousel-control-next" type="button" data-bs-target="#mi-carousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Siguiente</span>
+                    <span class="visually-hidden">{{ __('Next') }}</span>
                 </button>
 
                 <div class="carousel-indicators">
@@ -70,7 +70,7 @@
 
 <div class="row mt-5">
     <div class="mb-5">
-        <h3>Los productos más vendidos</h3>
+        <h3>{{ __('Best sellers') }}</h3>
     </div>
     @foreach ($viewData["best_sellers"] as $item)
     <div class="col-md-4 col-lg-3 mb-2">
