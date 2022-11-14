@@ -41,6 +41,7 @@
                         @csrf
                     </form>
                     @endguest
+                    @include('partials/language_switcher')
                 </div>
             </div>
         </div>
