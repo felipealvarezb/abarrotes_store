@@ -52,7 +52,8 @@
     "Purchase Status":"Estado de Compra",
     "Purchase Complete":"Compra Completada",
     "Order":"Orden",
-    "Product Name":"Nombre del Producto"
+    "Product Name":"Nombre del Producto",
+    "language":"Lenguaje"
 
 
 }

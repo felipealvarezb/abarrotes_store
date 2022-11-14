@@ -41,7 +41,14 @@
                         @csrf
                     </form>
                     @endguest
-                    @include('partials/language_switcher')
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          {{  __('language')  }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @include('partials/language_switcher')
+                        </ul>
+                    </li>
                 </div>
             </div>
         </div>
