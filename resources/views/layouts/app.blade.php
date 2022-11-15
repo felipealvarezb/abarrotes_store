@@ -12,7 +12,7 @@
 
 <body>
     <!-- header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4 fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home.index') }}">{{ __('Online Store') }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -53,17 +53,17 @@
             </div>
         </div>
     </nav>
-    <header class="masthead bg-primary text-white text-center py-4">
+    <header class="masthead bg-primary text-white text-center py-4 main">
         <div class="container d-flex align-items-center flex-column">
             <h2>@yield('subtitle', __('Laravel') )</h2>
         </div>
     </header>
     <!-- header -->
-    <div class="container my-4">
+    <div class="container my-4 main">
         @yield('content')
     </div>
     <!-- footer -->
-    <div class="copyright py-4 text-center text-white">
+    <div class="copyright py-4 text-center text-white fixed-bottom">
         <div class="container">
             <small>
                 @yield('footer', 'Footer')

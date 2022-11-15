@@ -23,3 +23,9 @@ nav {
 .carousel-control-prev-icon {
   filter: invert(1);
 }
+
+.main {
+    padding: 16px;
+    margin-top: 88px;
+     /* Add a bottom margin to avoid content overlay */
+}
