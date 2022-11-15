@@ -16,7 +16,8 @@ class CartController extends Controller
         $productsInCart = [];
 
         $productsInSession = $request->session()->get("products");
-        if ($productsInSession) {
+        if ($productsInSession) 
+        {
             $productsInCart = Product::findMany(array_keys($productsInSession));
             $total = Product::sumPricesByQuantities($productsInCart, $productsInSession);
         }
